@@ -56,13 +56,9 @@ python -m http.server 8000   # then visit http://localhost:8000
 ## Demo Video
 > **Note:** The demonstration video `dashboard-demo.mp4` is stored in `media/` (i.e., `submission/media/dashboard-demo.mp4`). The relative path works when the README is viewed from the repository root.
 
-```html
 <video src="https://github.com/user-attachments/assets/6caf274c-de98-47b9-934f-348e0bd1ed1f" controls width="800" style="border-radius:8px; box-shadow:0 8px 24px rgba(0,0,0,0.2);"></video>
 
 
-
-
-```
 
 ---
 
