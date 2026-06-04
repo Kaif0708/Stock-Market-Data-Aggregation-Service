@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Stock Market Data Aggregation Service
 
 A lightweight REST API built with Spring Boot and Apache Cassandra that aggregates minute‑level stock candles into higher‑timeframe bars. The repository includes a CLI client and a Vue.js dashboard.
@@ -84,3 +85,7 @@ curl.exe -G "http://localhost:8080/api/v1/candles" \
   --data-urlencode "start_date=2024-01-15 09:15:00" \
   --data-urlencode "end_date=2024-01-15 09:45:00"
 ```
+=======
+# Stock-Market-Data-Aggregation-Service
+A lightweight REST API built with Spring Boot and Apache Cassandra that aggregates minute‑level stock candles into higher‑timeframe bars. The repository includes a CLI client and a Vue.js dashboard.
+>>>>>>> aa410d40f5e89a0964554592b6b3e680dd6305ab
