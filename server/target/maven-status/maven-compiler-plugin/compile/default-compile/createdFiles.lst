@@ -1,0 +1,17 @@
+com\stock\aggregator\dto\CandleDto$CandleDtoBuilder.class
+com\stock\aggregator\exception\GlobalExceptionHandler$ErrorResponse.class
+com\stock\aggregator\model\StockCandle.class
+com\stock\aggregator\StockAggregatorApplication.class
+com\stock\aggregator\dto\CandleDto.class
+com\stock\aggregator\util\DataIngestionRunner.class
+com\stock\aggregator\dto\CandleResponse.class
+com\stock\aggregator\repository\StockCandleRepository.class
+com\stock\aggregator\exception\ResourceNotFoundException.class
+com\stock\aggregator\model\StockCandleKey.class
+com\stock\aggregator\config\CacheConfig.class
+com\stock\aggregator\config\CorsConfig.class
+com\stock\aggregator\dto\CandleResponse$CandleResponseBuilder.class
+com\stock\aggregator\exception\InvalidRequestException.class
+com\stock\aggregator\controller\StockCandleController.class
+com\stock\aggregator\service\CandleAggregationService.class
+com\stock\aggregator\exception\GlobalExceptionHandler.class

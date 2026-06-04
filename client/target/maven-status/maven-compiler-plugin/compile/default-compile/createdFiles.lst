@@ -1,0 +1,4 @@
+com\stock\client\StockCliClient$ErrorResponse.class
+com\stock\client\StockCliClient$CandleDto.class
+com\stock\client\StockCliClient$CandleResponse.class
+com\stock\client\StockCliClient.class

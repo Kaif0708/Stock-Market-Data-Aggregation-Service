@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: stock-data-aggregator
+
+  cassandra:
+    contact-points: 127.0.0.1
+    port: 9042
+    keyspace-name: stock_keyspace
+    local-datacenter: datacenter1
+    schema-action: NONE
+    request:
+      timeout: 10s
+    connection:
+      connect-timeout: 10s
+      init-query-timeout: 10s
+
+# Logging Configurations for observability
+logging:
+  level:
+    root: INFO
+    com.stock.aggregator: DEBUG
+    org.springframework.data.cassandra: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# Ingestion configuration
+ingestion:
+  csv-path: ../stock_data.csv
+  enabled: true

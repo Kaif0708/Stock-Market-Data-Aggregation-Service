@@ -1,0 +1,14 @@
+C:\Users\kaifs\OneDrive\Desktop\assignment\submission\server\src\main\java\com\stock\aggregator\config\CacheConfig.java
+C:\Users\kaifs\OneDrive\Desktop\assignment\submission\server\src\main\java\com\stock\aggregator\config\CorsConfig.java
+C:\Users\kaifs\OneDrive\Desktop\assignment\submission\server\src\main\java\com\stock\aggregator\controller\StockCandleController.java
+C:\Users\kaifs\OneDrive\Desktop\assignment\submission\server\src\main\java\com\stock\aggregator\dto\CandleDto.java
+C:\Users\kaifs\OneDrive\Desktop\assignment\submission\server\src\main\java\com\stock\aggregator\dto\CandleResponse.java
+C:\Users\kaifs\OneDrive\Desktop\assignment\submission\server\src\main\java\com\stock\aggregator\exception\GlobalExceptionHandler.java
+C:\Users\kaifs\OneDrive\Desktop\assignment\submission\server\src\main\java\com\stock\aggregator\exception\InvalidRequestException.java
+C:\Users\kaifs\OneDrive\Desktop\assignment\submission\server\src\main\java\com\stock\aggregator\exception\ResourceNotFoundException.java
+C:\Users\kaifs\OneDrive\Desktop\assignment\submission\server\src\main\java\com\stock\aggregator\model\StockCandle.java
+C:\Users\kaifs\OneDrive\Desktop\assignment\submission\server\src\main\java\com\stock\aggregator\model\StockCandleKey.java
+C:\Users\kaifs\OneDrive\Desktop\assignment\submission\server\src\main\java\com\stock\aggregator\repository\StockCandleRepository.java
+C:\Users\kaifs\OneDrive\Desktop\assignment\submission\server\src\main\java\com\stock\aggregator\service\CandleAggregationService.java
+C:\Users\kaifs\OneDrive\Desktop\assignment\submission\server\src\main\java\com\stock\aggregator\StockAggregatorApplication.java
+C:\Users\kaifs\OneDrive\Desktop\assignment\submission\server\src\main\java\com\stock\aggregator\util\DataIngestionRunner.java
