@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Stock Market Data Aggregation Service
 
 A lightweight REST API built with Spring Boot and Apache Cassandra that aggregates minute‑level stock candles into higher‑timeframe bars. The repository includes a CLI client and a Vue.js dashboard.
@@ -63,7 +62,87 @@ python -m http.server 8000   # then visit http://localhost:8000
 
 ---
 
-## API Documentation
+## 📚 API Reference
+
+### `GET /api/v1/candles`
+
+Gets aggregated candle data for a stock symbol.
+
+**Path**: `/api/v1/candles`  
+**Method**: `GET`
+
+#### Query Parameters
+
+| Parameter   | Type    | Required | Description                                                                 | Example |
+|------------|---------|----------|-----------------------------------------------------------------------------|---------|
+| `symbol`   | string  | ✅       | Stock ticker symbol (case‑insensitive)                                      | `RELIANCE` |
+| `timeframe`| string  | ✅       | Aggregation timeframe – one of `1m`, `5m`, `15m`, `30m`, `1h`, `1d`          | `15m` |
+| `start_date`| string | ✅       | Start date/time in UTC (`yyyy‑MM‑dd HH:mm:ss` **or** ISO‑8601)               | `2024-01-15 09:15:00` |
+| `end_date` | string  | ✅       | End date/time in UTC (same format as `start_date`)                           | `2024-01-15 09:45:00` |
+| `page`     | int     | ❌       | Zero‑based page index for pagination (default: all results)                | `0` |
+| `size`     | int     | ❌       | Page size (must be > 0) – how many candles per page                         | `10` |
+
+#### Successful Response (`200 OK`)
+
+```json
+{
+  "symbol": "RELIANCE",
+  "timeframe": "15m",
+  "candles": [
+    {
+      "datetime": "2024-01-15T09:15:00Z",
+      "open": 2450.5,
+      "high": 2472.3,
+      "low": 2448.1,
+      "close": 2465.8,
+      "volume": 260300
+    },
+    {
+      "datetime": "2024-01-15T09:30:00Z",
+      "open": 2465.8,
+      "high": 2480.0,
+      "low": 2463.5,
+      "close": 2475.6,
+      "volume": 241100
+    }
+  ],
+  "count": 2
+}
+```
+
+#### Error Responses
+
+| Status | Condition | Example Message |
+|--------|------------|-----------------|
+| `400 Bad Request` | Missing/invalid parameter (e.g., unsupported `timeframe`) | "Unsupported timeframe '12m'. Supported: [1m, 5m, 15m, 30m, 1h, 1d]" |
+| `400 Bad Request` | `start_date` after `end_date` | "start_date cannot be after end_date" |
+| `404 Not Found` | No data found for the given criteria | "No candlestick data found for symbol: 'INFY' in range [2024-01-15 09:15:00 to 2024-01-15 15:30:00]" |
+
+#### cURL Example (PowerShell)
+
+> **Note:** PowerShell aliases `curl` → `Invoke-WebRequest`. Use `curl.exe` for the classic CLI.
+
+```bash
+curl.exe -G "http://localhost:8080/api/v1/candles" \
+  --data-urlencode "symbol=RELIANCE" \
+  --data-urlencode "timeframe=15m" \
+  --data-urlencode "start_date=2024-01-15 09:15:00" \
+  --data-urlencode "end_date=2024-01-15 09:45:00"
+```
+
+*Add optional pagination parameters `page` and `size` in the same way if you need them.*
+
+---
+
+### How the endpoint works (high‑level)
+
+1. **Validation** – Checks that all required parameters are present and that `timeframe` belongs to the supported list.
+2. **Date parsing** – Accepts ISO‑8601, `yyyy‑MM‑dd HH:mm:ss`, or plain `yyyy‑MM‑dd`. Normalised to UTC `Instant`.
+3. **Aggregation** – Delegates to `CandleAggregationService` which groups raw 1‑minute candles.
+4. **Pagination** – If `page` & `size` are supplied, the result list is sliced.
+5. **Response** – Wrapped in `CandleResponse`.
+
+All of this logic lives in `src/main/java/com/stock/aggregator/controller/StockCandleController.java`.
 ### `GET /api/v1/candles`
 Retrieves aggregated candle data.
 
@@ -85,7 +164,3 @@ curl.exe -G "http://localhost:8080/api/v1/candles" \
   --data-urlencode "start_date=2024-01-15 09:15:00" \
   --data-urlencode "end_date=2024-01-15 09:45:00"
 ```
-=======
-# Stock-Market-Data-Aggregation-Service
-A lightweight REST API built with Spring Boot and Apache Cassandra that aggregates minute‑level stock candles into higher‑timeframe bars. The repository includes a CLI client and a Vue.js dashboard.
->>>>>>> aa410d40f5e89a0964554592b6b3e680dd6305ab
